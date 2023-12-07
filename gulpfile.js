@@ -110,6 +110,12 @@ function end(cb){
     return cb()
 }
 
+function StripCss (cb) {   
+gulp.src('src/style.min.css')
+.pipe(StripCssComments())
+.pipe(gulp.dest('dist'))
+};
+
 // series x parallel
 const process = parallel( tarefasHTML, tarefasJS, tarefasCSS, tarefasSASS, end)
 
