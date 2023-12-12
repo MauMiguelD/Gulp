@@ -16,6 +16,16 @@ const { contains } = require('jquery')
 const { default: gulpStripCssComments } = require('gulp-strip-css-comments')
 const reload = browserSync.reload
 
+sass.compiler = require("node-sass"); // Necessário para funcionar gulp-sass
+
+gulp.task('sass', compilaSass);
+function compilaSass(){
+    return gulp 
+    .src('src/scss/**/*.scss')
+    .pipe(sass()) // Converse Sass para CSS com gulp-sass
+    .pipe(gulp.dest("src/css"));
+}
+
 function tarefasCSS(cb) {
 
     gulp.src([
